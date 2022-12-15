@@ -1,14 +1,18 @@
 package maceraoyunu;
 
+import maceraoyunu.characters.Character;
+
 public class Player {
     private int damage;
     private int health;
     private int money;
     private String charName;
     private String name;
+    final Character character;
 
-    public Player(String name){
+    public Player(String name, Character character){
         this.name= name;
+        this.character = character;
     }
 
     public int getDamage() {
