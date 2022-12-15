@@ -1,12 +1,29 @@
 package maceraoyunu.characters;
 
-public abstract class Character {
+public abstract class GameCharacter {
     String characterTyp;
+    int id;
     int damage;
     int health;
     int money;
 
-    public Character(int damage, int health, int money) {
+    public String getCharacterTyp() {
+        return characterTyp;
+    }
+
+    public void setCharacterTyp(String characterTyp) {
+        this.characterTyp = characterTyp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public GameCharacter(int damage, int health, int money) {
         this.damage = damage;
         this.health = health;
         this.money = money;
@@ -37,7 +54,7 @@ public abstract class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
+        return "GameCharacter{" +
                 "characterTyp='" + characterTyp + '\'' +
                 ", damage=" + damage +
                 ", health=" + health +
