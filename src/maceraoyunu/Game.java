@@ -1,46 +1,58 @@
 package maceraoyunu;
 
-import maceraoyunu.characters.Archer;
-import maceraoyunu.characters.GameCharacter;
-import maceraoyunu.characters.Samurai;
-import maceraoyunu.characters.Paladin;
+import maceraoyunu.location.*;
 
 import java.util.Scanner;
 
 public class Game {
-    private Scanner sc= new Scanner(System.in);
-    Player player1=createPlayer();
+    Scanner sc = new Scanner(System.in);
 
-    public void start(){
+    public void start() {
+        Player p1 = Player.createPlayer();
+        p1.setActiveLocation(new SafeHouse(p1));
+        System.out.println(p1);
+        while (true) {
+            bringLocation(p1);
+            if(!p1.getActiveLocation().onLocation()){
+                System.out.println(" Game over !");
+                break;
+            }
+        }
+
 
     }
 
-    private Player createPlayer() {
-        GameCharacter[] gc={new Samurai(5,21,15),new Archer(7,18,20),new Paladin(8,24,5)};
-        System.out.println("------------------------------------------------");
-        for (GameCharacter gamecharacter: gc) {
-            System.out.println(gamecharacter.toString());
+    public void bringLocation(Player player) {
+        Location[] location = {new SafeHouse(player), new ToolStore(player), new Cave(player), new Forest(player), new River(player)};
+        int k = 0;
+        System.out.println(" ############### Locations #################");
+        for (Location l : location) {
+            k++;
+            System.out.println(k + "-" + l.getName());
         }
-        System.out.println("------------------------------------------------");
-        System.out.print("Input your name:");
-        String nameOfPlayer=sc.next();
-        System.out.print("Select your Character (1-Samurai-2-Archer-3-Paladin):");
-        int x=sc.nextInt();
-        switch(x){
-            case 1:
-                player1= new Player(nameOfPlayer,gc[0]);
+        System.out.print("Select your location:");
+        int selectLocation = sc.nextInt();
+
+        switch (selectLocation) {
+            default:
+                player.setActiveLocation(location[0]);
                 break;
             case 2:
-                player1= new Player(nameOfPlayer,gc[1]);
+                player.setActiveLocation(location[1]);
                 break;
-            default:
-                player1=new Player(nameOfPlayer,gc[2]);
+            case 3:
+                player.setActiveLocation(location[2]);
+                break;
+            case 4:
+                player.setActiveLocation(location[3]);
+                break;
+            case 5:
+                player.setActiveLocation(location[4]);
                 break;
         }
-        System.out.println(nameOfPlayer+ " Welcome to the Adventure Game !");
-        System.out.println("Your Character is a "+ player1.gameCharacter.getCharacterTyp() +"\nDetails of your character:");
-        System.out.println( player1.gameCharacter.toString());
-        return player1;
+        System.out.println( player.getActiveLocation().getName().toString().substring(player.getActiveLocation().getName().toString().lastIndexOf('.')+1) );
+
     }
+
 
 }
