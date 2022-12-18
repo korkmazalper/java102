@@ -4,6 +4,7 @@ import maceraoyunu.characters.Archer;
 import maceraoyunu.characters.GameCharacter;
 import maceraoyunu.characters.Paladin;
 import maceraoyunu.characters.Samurai;
+import maceraoyunu.gametools.Tools;
 import maceraoyunu.inventory.Inventory;
 import maceraoyunu.location.*;
 
@@ -15,6 +16,7 @@ public class Player {
     private int damage;
     private int health;
     private int money;
+    private int armor;
     private String charName;
     private String name;
     private Location activeLocation;
@@ -62,7 +64,7 @@ public class Player {
 
 
     public int getDamage() {
-        return damage;
+        return damage+this.inventory.getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -117,14 +119,23 @@ public class Player {
         this.inventory = inventory;
     }
 
+    public int getArmor() {
+        return armor+this.inventory.getArmor().getBlock();
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "damage=" + damage
-                + ", health=" + health
-                + ", money=" + money
-                + ", charName='" + charName
-                + '\'' + ", name='"+ name
+        return "Player{" + "damage=" + getDamage()
+                + ", health=" + getHealth()
+                + ", money=" + getMoney()
+                + ", charName='" + getCharName()
+                +", armor='" + getArmor()
+                + '\'' + ", name='"+ getName()
                 + '\''
-                + ", activeLocation=" + this.getActiveLocation().getName().toString().substring(this.getActiveLocation().getName().toString().lastIndexOf('.')+1) + ", gameCharacter=" + gameCharacter + '}';
+                + ", activeLocation=" + Tools.bringClassName(activeLocation)+ ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
     }
 }
