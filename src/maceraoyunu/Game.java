@@ -1,5 +1,6 @@
 package maceraoyunu;
 
+import maceraoyunu.gametools.Tools;
 import maceraoyunu.location.*;
 
 import java.util.Scanner;
@@ -28,30 +29,34 @@ public class Game {
         System.out.println(" ############### Locations #################");
         for (Location l : location) {
             k++;
-            System.out.println(k + "-" + l.getName());
+
+            if(l.getAward()!=""){
+                System.out.println(k + "-" + l.getName() + " dangerous region. Award: " + l.getAward());
+            } else{
+                System.out.println(k + "-" + l.getName());
+            }
         }
         System.out.print("Select your location:");
-        int selectLocation = sc.nextInt();
+        String selectLocation = sc.nextLine();
 
         switch (selectLocation) {
             default:
                 player.setActiveLocation(location[0]);
                 break;
-            case 2:
+            case "2":
                 player.setActiveLocation(location[1]);
                 break;
-            case 3:
+            case "3":
                 player.setActiveLocation(location[2]);
                 break;
-            case 4:
+            case "4":
                 player.setActiveLocation(location[3]);
                 break;
-            case 5:
+            case "5":
                 player.setActiveLocation(location[4]);
                 break;
         }
-        System.out.println( player.getActiveLocation().getName().toString().substring(player.getActiveLocation().getName().toString().lastIndexOf('.')+1) );
-
+        System.out.println(Tools.bringClassName(player.getActiveLocation()));
     }
 
 

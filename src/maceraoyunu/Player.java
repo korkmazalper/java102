@@ -42,18 +42,20 @@ public class Player {
         //System.out.print("Input your name:");
         //String nameOfPlayer=sc.next();
         String nameOfPlayer = "NinjaMatix";
-        System.out.print("Select your Character (1-Samurai-2-Archer-3-Paladin):");
-        int x = sc.nextInt();
+        System.out.print("Select your Character (1-Samurai(Default) -2-Archer-3-Paladin):");
+        String x = sc.nextLine();
         switch (x) {
-            case 1:
+            default:
                 player1 = new Player(nameOfPlayer, gc[0]);
                 break;
-            case 2:
+            case "2":
                 player1 = new Player(nameOfPlayer, gc[1]);
                 break;
-            default:
+            case "3":
                 player1 = new Player(nameOfPlayer, gc[2]);
                 break;
+
+
         }
         System.out.println(nameOfPlayer + " Welcome to the Adventure Game !");
         System.out.println("Your Character is a " + player1.gameCharacter.getCharacterTyp() + "\nDetails of your character:");

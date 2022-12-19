@@ -8,6 +8,7 @@ public abstract class Location {
     protected static Scanner sc= new Scanner(System.in);
     Player p1;
     String name;
+    protected String award;
     boolean onLocation;
     public Location(Player p1, String name) {
         this.p1 = p1;
@@ -34,7 +35,11 @@ public abstract class Location {
         this.name = name;
     }
 
+    public String getAward() {
+        return award;
+    }
 
-
-
+    public void setAward(String award) {
+        this.award = award;
+    }
 }
