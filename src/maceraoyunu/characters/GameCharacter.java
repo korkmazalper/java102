@@ -6,7 +6,7 @@ public abstract class GameCharacter {
     int damage;
     int health;
     int money;
-
+int armor;
     public String getCharacterTyp() {
         return characterTyp;
     }
@@ -52,13 +52,22 @@ public abstract class GameCharacter {
         this.money = money;
     }
 
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
     @Override
     public String toString() {
         return "GameCharacter{" +
                 "characterTyp='" + characterTyp + '\'' +
                 ", damage=" + damage +
                 ", health=" + health +
-                ", money=" + money +
+                ", money=" + money
+                +", armor=" + armor+
                 '}';
     }
 }
