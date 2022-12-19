@@ -127,4 +127,5 @@ public class Player {
                 + '\''
                 + ", activeLocation=" + this.getActiveLocation().getName().toString().substring(this.getActiveLocation().getName().toString().lastIndexOf('.')+1) + ", gameCharacter=" + gameCharacter + '}';
     }
+
 }
