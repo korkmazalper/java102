@@ -25,3 +25,11 @@ P
 -src/universitecalisan/BilgiIslemCalisani.java,6\d\6dc699b7f2f7d9d1eac2b07ad3beb65ba900b29f
 O
 src/universitecalisan/Main.java,1\4\1401db047be7b3898756729e80eaec26cad56d6a
+V
+&src/maceraoyunu/characters/Archer.java,5\e\5ea3b0eaa05ad75a612d031b54cf6c32ea8459ff
+W
+'src/maceraoyunu/characters/Paladin.java,7\9\79a8e191d570c399474d1d0710c3c8dd802fe9fd
+I
+src/maceraoyunu/Main.java,e\5\e52aee90fbe66b420964c7b441859c4f1de396ec
+W
+'src/maceraoyunu/location/SafeHouse.java,a\6\a6957a4a5e7681f2c4d14c954795f1451bf3c4d4

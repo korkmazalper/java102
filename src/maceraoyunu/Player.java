@@ -21,7 +21,7 @@ public class Player {
     private String name;
     private Location activeLocation;
     private Inventory inventory;
-
+    private int totalDamage;
     public Player(String name, GameCharacter gameCharacter) {
         this.name = name;
         this.gameCharacter = gameCharacter;
@@ -29,6 +29,7 @@ public class Player {
         this.money= gameCharacter.getMoney();
         this.health= gameCharacter.getHealth();
         this.inventory= new Inventory();
+        this.totalDamage=gameCharacter.getDamage();
     }
 
     public static Player createPlayer() {
@@ -42,18 +43,20 @@ public class Player {
         //System.out.print("Input your name:");
         //String nameOfPlayer=sc.next();
         String nameOfPlayer = "NinjaMatix";
-        System.out.print("Select your Character (1-Samurai-2-Archer-3-Paladin):");
-        int x = sc.nextInt();
+        System.out.print("Select your Character (1-Samurai(Default) -2-Archer-3-Paladin):");
+        String x = sc.nextLine();
         switch (x) {
-            case 1:
+            default:
                 player1 = new Player(nameOfPlayer, gc[0]);
                 break;
-            case 2:
+            case "2":
                 player1 = new Player(nameOfPlayer, gc[1]);
                 break;
-            default:
+            case "3":
                 player1 = new Player(nameOfPlayer, gc[2]);
                 break;
+
+
         }
         System.out.println(nameOfPlayer + " Welcome to the Adventure Game !");
         System.out.println("Your Character is a " + player1.gameCharacter.getCharacterTyp() + "\nDetails of your character:");
@@ -61,10 +64,16 @@ public class Player {
         return player1;
     }
 
+    public int getTotalDamage() {
+        return this.totalDamage+this.inventory.getWeapon().getDamage();
+    }
 
+    public void setTotalDamage(int totalDamage) {
+        this.totalDamage = totalDamage;
+    }
 
     public int getDamage() {
-        return damage+this.inventory.getWeapon().getDamage();
+        return this.damage;
     }
 
     public void setDamage(int damage) {
@@ -129,7 +138,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" + "damage=" + getDamage()
+        return "Player{" + "Total damage=" + getTotalDamage()
                 + ", health=" + getHealth()
                 + ", money=" + getMoney()
                 + ", charName='" + getCharName()
@@ -138,4 +147,5 @@ public class Player {
                 + '\''
                 + ", activeLocation=" + Tools.bringClassName(activeLocation)+ ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
     }
+
 }

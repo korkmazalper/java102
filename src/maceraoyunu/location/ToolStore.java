@@ -9,6 +9,7 @@ import maceraoyunu.inventory.Weapon;
 public class ToolStore extends SafeLocation{
     public ToolStore(Player player) {
         super(player, "Tool Store");
+
     }
 
     @Override

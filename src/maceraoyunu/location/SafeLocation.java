@@ -5,6 +5,7 @@ import maceraoyunu.Player;
 public abstract class SafeLocation extends Location {
     public SafeLocation(Player p1, String name) {
         super(p1, name);
+        this.award="";
     }
 
     @Override
