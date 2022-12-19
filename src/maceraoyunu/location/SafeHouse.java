@@ -11,6 +11,7 @@ public class SafeHouse  extends SafeLocation{
     public boolean onLocation() {
         super.onLocation();
         System.out.println("Your health is refilled.");
+        this.getPlayer().setHealth(this.getPlayer().getOriginalHealth());
         return true;
     }
 }

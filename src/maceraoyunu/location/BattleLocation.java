@@ -4,7 +4,6 @@ import maceraoyunu.Player;
 import maceraoyunu.gametools.Tools;
 import maceraoyunu.monster.Monster;
 
-import java.util.Locale;
 import java.util.Random;
 
 public abstract class BattleLocation extends Location {
@@ -33,7 +32,7 @@ public abstract class BattleLocation extends Location {
                 return true;
             }
         }
-        if(this.getP1().getHealth()<=0){
+        if(this.getPlayer().getHealth()<=0){
             System.out.println(" You died !");
             return false;
         }
@@ -42,35 +41,36 @@ public abstract class BattleLocation extends Location {
 
     private boolean combat(int numberOfMonsters) {
         for (int i = 1; i <=numberOfMonsters ; i++) {
+
+            this.monster.setHealth(this.monster.getOriginalHealth());
             playerStatistics();
             monsterStatistics(i);
-            this.monster.setHealth(this.monster.getOriginalHealth());
-            while(this.getP1().getHealth()>0 && this.getMonster().getHealth()>0){
+            while(this.getPlayer().getHealth()>0 && this.getMonster().getHealth()>0){
                 System.out.print("<H>it or <R>un away !");
                 String selectCombat = sc.nextLine().toUpperCase();
                 if("H".equals(selectCombat)){
                     System.out.println("You hit !");
-                    this.getMonster().setHealth(this.monster.getHealth()-this.getP1().getTotalDamage());
+                    this.getMonster().setHealth(this.monster.getHealth()-this.getPlayer().getTotalDamage());
                     afterHit();
                     if(this.getMonster().getHealth()>0){
                         System.out.println(this.getMonster().getName() + " hits you !");
-                        int totalDamagee=this.getMonster().getDamage()-this.getP1().getInventory().getArmor().getBlock();
+                        int totalDamagee=this.getMonster().getDamage()-this.getPlayer().getInventory().getArmor().getBlock();
                         System.out.println("total damage=" + totalDamagee);
                         if(totalDamagee<0){
                             totalDamagee=0;
                         }
-                        this.getP1().setHealth(this.getP1().getHealth()-totalDamagee);
+                        this.getPlayer().setHealth(this.getPlayer().getHealth()-totalDamagee);
                         afterHit();
                     }
                 } else{
                     return false;
                 }
             }
-            if(this.getMonster().getHealth()<this.getP1().getHealth()){
+            if(this.getMonster().getHealth()<this.getPlayer().getHealth()){
                 System.out.println("You killed all the monsters !");
                 System.out.println("You won "+this.getMonster().getAward() + " money");
-                this.getP1().setMoney(this.getP1().getMoney()+this.getMonster().getAward());
-                System.out.println("Your actual money: " + this.getP1().getMoney());
+                this.getPlayer().setMoney(this.getPlayer().getMoney()+this.getMonster().getAward());
+                System.out.println("Your actual money: " + this.getPlayer().getMoney());
             } else{
                 return false;
             }
@@ -82,7 +82,7 @@ public abstract class BattleLocation extends Location {
     private void afterHit() {
         System.out.println("Actual Health Statistics");
         System.out.println("--------------------------------");
-        System.out.println("The Health of the player: " + this.getP1().getHealth());
+        System.out.println("The Health of the player: " + this.getPlayer().getHealth());
         System.out.println("The health of the actual monster: " + this.getMonster().getHealth());
         System.out.println("*************************************");
     }
@@ -96,7 +96,7 @@ public abstract class BattleLocation extends Location {
     private void playerStatistics() {
         System.out.println("Player Statistics");
         System.out.println("--------------------------");
-        System.out.println(this.p1.toString());
+        System.out.println(this.player.toString());
     }
 
     private int createNumberOfMonsters() {

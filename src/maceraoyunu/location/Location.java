@@ -1,17 +1,16 @@
 package maceraoyunu.location;
 
 import maceraoyunu.Player;
-
 import java.util.Scanner;
 
 public abstract class Location {
     protected static Scanner sc= new Scanner(System.in);
-    Player p1;
+    Player player;
     String name;
     protected String award;
     boolean onLocation;
-    public Location(Player p1, String name) {
-        this.p1 = p1;
+    public Location(Player player, String name) {
+        this.player = player;
         this.name = name;
     }
     public boolean onLocation() {
@@ -19,12 +18,12 @@ public abstract class Location {
         return true;
     }
 
-    public Player getP1() {
-        return p1;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setP1(Player p1) {
-        this.p1 = p1;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public String getName() {

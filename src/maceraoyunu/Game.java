@@ -14,10 +14,11 @@ public class Game {
         System.out.println(p1);
         while (true) {
             bringLocation(p1);
-            if(!p1.getActiveLocation().onLocation()){
+            if(p1.getActiveLocation()==null || (p1.getActiveLocation()!=null && !p1.getActiveLocation().onLocation())){
                 System.out.println(" Game over !");
                 break;
             }
+
         }
 
 
@@ -27,9 +28,9 @@ public class Game {
         Location[] location = {new SafeHouse(player), new ToolStore(player), new Cave(player), new Forest(player), new River(player)};
         int k = 0;
         System.out.println(" ############### Locations #################");
+        System.out.println(k + "- Quit"  );
         for (Location l : location) {
             k++;
-
             if(l.getAward()!=""){
                 System.out.println(k + "-" + l.getName() + " dangerous region. Award: " + l.getAward());
             } else{
@@ -55,8 +56,12 @@ public class Game {
             case "5":
                 player.setActiveLocation(location[4]);
                 break;
+            case "0":
+                player.setActiveLocation(null);
+                break;
         }
-        System.out.println(Tools.bringClassName(player.getActiveLocation()));
+
+        //System.out.println(Tools.bringClassName(player.getActiveLocation()));
     }
 
 
