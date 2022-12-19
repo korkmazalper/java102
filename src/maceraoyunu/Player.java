@@ -21,7 +21,7 @@ public class Player {
     private String name;
     private Location activeLocation;
     private Inventory inventory;
-
+    private int totalDamage;
     public Player(String name, GameCharacter gameCharacter) {
         this.name = name;
         this.gameCharacter = gameCharacter;
@@ -29,6 +29,7 @@ public class Player {
         this.money= gameCharacter.getMoney();
         this.health= gameCharacter.getHealth();
         this.inventory= new Inventory();
+        this.totalDamage=gameCharacter.getDamage();
     }
 
     public static Player createPlayer() {
@@ -63,10 +64,16 @@ public class Player {
         return player1;
     }
 
+    public int getTotalDamage() {
+        return this.totalDamage+this.inventory.getWeapon().getDamage();
+    }
 
+    public void setTotalDamage(int totalDamage) {
+        this.totalDamage = totalDamage;
+    }
 
     public int getDamage() {
-        return damage+this.inventory.getWeapon().getDamage();
+        return this.damage;
     }
 
     public void setDamage(int damage) {
@@ -131,7 +138,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" + "damage=" + getDamage()
+        return "Player{" + "Total damage=" + getTotalDamage()
                 + ", health=" + getHealth()
                 + ", money=" + getMoney()
                 + ", charName='" + getCharName()

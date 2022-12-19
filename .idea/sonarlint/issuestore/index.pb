@@ -28,8 +28,6 @@ O
 V
 &src/maceraoyunu/characters/Archer.java,5\e\5ea3b0eaa05ad75a612d031b54cf6c32ea8459ff
 W
-'src/maceraoyunu/characters/Samurai.java,e\3\e340ba3d0558c27cb73ed4f332688b03f7014d94
-W
 'src/maceraoyunu/characters/Paladin.java,7\9\79a8e191d570c399474d1d0710c3c8dd802fe9fd
 I
 src/maceraoyunu/Main.java,e\5\e52aee90fbe66b420964c7b441859c4f1de396ec
