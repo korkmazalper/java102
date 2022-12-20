@@ -48,7 +48,7 @@ public class Player {
 
     public static Player createPlayer() {
         Player player1;
-        GameCharacter[] gc = {new Samurai(15, 121, 15), new Archer(7, 18, 20), new Paladin(8, 24, 5)};
+        GameCharacter[] gc = {new Samurai(5, 21, 15), new Archer(7, 18, 20), new Paladin(8, 24, 5)};
         System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("-------------------------------------- CHARACTERS ------------------------------------------");
         System.out.println("--------------------------------------------------------------------------------------------");
