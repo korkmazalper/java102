@@ -35,6 +35,9 @@ public abstract class BattleLocation extends Location {
                     System.out.println(this.getName() + " is now clear!");
                     //this.setConquered(true);
                     this.getPlayer().addToConqueredRegions(this.name);
+                    if(this.getMonster().getName().equals("Snake")){
+                        bringRandomAward();
+                    }
                     this.getPlayer().getInventory().addToAwards(this.getAward());
                     return true;
                 }
@@ -91,7 +94,7 @@ public abstract class BattleLocation extends Location {
                     this.getPlayer().setMoney(this.getPlayer().getMoney()+this.getMonster().getAward());
                     System.out.println("Your actual money: " + this.getPlayer().getMoney());
                 } else{
-                    bringRandomAward();
+
                 }
 
 
