@@ -6,6 +6,7 @@ import maceraoyunu.characters.Paladin;
 import maceraoyunu.characters.Samurai;
 import maceraoyunu.gametools.Tools;
 import maceraoyunu.inventory.Inventory;
+import maceraoyunu.inventory.Item;
 import maceraoyunu.location.*;
 
 import java.util.ArrayList;
@@ -180,8 +181,16 @@ public class Player {
                 + '\'' + ", name='" + getName()+ '\''
                 +" Invertory= " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getAwards())
                 + " Conquered Regions = " + Arrays.asList(getActiveLocation().getPlayer().getConqueredRegions())
-                + " Items in Inventory = " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getInventoryList().toString())
+                + " Items in Inventory = " + bringItemList()
                 + " , activeLocation=" + Tools.bringClassName(activeLocation) + ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
+    }
+
+    private String bringItemList() {
+        String str="";
+        for (Item i:this.getInventory().getInventoryList()   ) {
+            str+=i.getName()+",";
+        }
+        return str;
     }
 
 }
