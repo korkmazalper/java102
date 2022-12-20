@@ -180,7 +180,7 @@ public class Player {
                 + '\'' + ", name='" + getName()+ '\''
                 +" Invertory= " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getAwards())
                 + " Conquered Regions = " + Arrays.asList(getActiveLocation().getPlayer().getConqueredRegions())
-                + "Items in Inventory = " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getInventoryList())
+                + " Items in Inventory = " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getInventoryList().toString())
                 + " , activeLocation=" + Tools.bringClassName(activeLocation) + ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
     }
 
