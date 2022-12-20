@@ -2,10 +2,18 @@ package maceraoyunu.inventory;
 
 import maceraoyunu.gametools.Tools;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Inventory {
     Weapon weapon;
     Armor armor;
     Item item;
+    List<String> awards = new ArrayList<String>();
+    List<Item> inventoryList= new ArrayList<Item>();
+    public String addToAwards(String str){
+        return this.awards.add(str)?"Award was added to Inventory":"Award was not added to Inventory!";
+    }
 
     public Inventory() {
         this.weapon = new Weapon(0,"Fist",0,0);
@@ -30,6 +38,27 @@ public class Inventory {
 
     public Item getItem() {
         return item;
+    }
+
+    public List<String> getAwards() {
+        return awards;
+    }
+
+    public void setAwards(List<String> awards) {
+        this.awards = awards;
+    }
+
+    public List<Item> getInventoryList() {
+        return inventoryList;
+    }
+    public void addToInventoryList(Item item){
+        if(!this.inventoryList.contains(item)){
+            this.inventoryList.add(item);
+        }
+
+    }
+    public void setInventoryList(List<Item> inventoryList) {
+        this.inventoryList = inventoryList;
     }
 
     public void setItem(Item item) {

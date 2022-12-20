@@ -8,6 +8,9 @@ import maceraoyunu.gametools.Tools;
 import maceraoyunu.inventory.Inventory;
 import maceraoyunu.location.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
@@ -15,6 +18,7 @@ public class Player {
     final GameCharacter gameCharacter;
     private int damage;
     private int health;
+    private int originalHealth;
     private int money;
     private int armor;
     private String charName;
@@ -22,24 +26,35 @@ public class Player {
     private Location activeLocation;
     private Inventory inventory;
     private int totalDamage;
+    private List<String> conqueredRegions= new ArrayList<String>();
+    public String addToConqueredRegions(String str){
+            if(!this.conqueredRegions.contains(str)){
+                this.conqueredRegions.add(str);
+                return "Successfully added.";
+            }
+        return "failed to add region";
+    }
     public Player(String name, GameCharacter gameCharacter) {
         this.name = name;
         this.gameCharacter = gameCharacter;
-        this.damage= gameCharacter.getDamage();
-        this.money= gameCharacter.getMoney();
-        this.health= gameCharacter.getHealth();
-        this.inventory= new Inventory();
-        this.totalDamage=gameCharacter.getDamage();
+        this.damage = gameCharacter.getDamage();
+        this.money = gameCharacter.getMoney();
+        this.health = gameCharacter.getHealth();
+        this.originalHealth=gameCharacter.getHealth();
+        this.inventory = new Inventory();
+        this.totalDamage = gameCharacter.getDamage();
     }
 
     public static Player createPlayer() {
         Player player1;
-        GameCharacter[] gc = {new Samurai(5, 21, 15), new Archer(7, 18, 20), new Paladin(8, 24, 5)};
-        System.out.println("------------------------------------------------");
+        GameCharacter[] gc = {new Samurai(15, 121, 15), new Archer(7, 18, 20), new Paladin(8, 24, 5)};
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------- CHARACTERS ------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------");
         for (GameCharacter gamecharacter : gc) {
             System.out.println("|" + gamecharacter + "                           |");
         }
-        System.out.println("------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------");
         //System.out.print("Input your name:");
         //String nameOfPlayer=sc.next();
         String nameOfPlayer = "NinjaMatix";
@@ -65,7 +80,7 @@ public class Player {
     }
 
     public int getTotalDamage() {
-        return this.totalDamage+this.inventory.getWeapon().getDamage();
+        return this.totalDamage + this.inventory.getWeapon().getDamage();
     }
 
     public void setTotalDamage(int totalDamage) {
@@ -85,6 +100,9 @@ public class Player {
     }
 
     public void setHealth(int health) {
+        if (health < 0) {
+            health = 0;
+        }
         this.health = health;
     }
 
@@ -129,11 +147,27 @@ public class Player {
     }
 
     public int getArmor() {
-        return armor+this.inventory.getArmor().getBlock();
+        return armor + this.inventory.getArmor().getBlock();
     }
 
     public void setArmor(int armor) {
         this.armor = armor;
+    }
+
+    public int getOriginalHealth() {
+        return originalHealth;
+    }
+
+    public void setOriginalHealth(int originalHealth) {
+        this.originalHealth = originalHealth;
+    }
+
+    public List<String> getConqueredRegions() {
+        return conqueredRegions;
+    }
+
+    public void setConqueredRegions(List<String> conqueredRegions) {
+        this.conqueredRegions = conqueredRegions;
     }
 
     @Override
@@ -142,10 +176,12 @@ public class Player {
                 + ", health=" + getHealth()
                 + ", money=" + getMoney()
                 + ", charName='" + getCharName()
-                +", armor='" + getArmor()
-                + '\'' + ", name='"+ getName()
-                + '\''
-                + ", activeLocation=" + Tools.bringClassName(activeLocation)+ ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
+                + ", armor='" + getArmor()
+                + '\'' + ", name='" + getName()+ '\''
+                +" Invertory= " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getAwards())
+                + " Conquered Regions = " + Arrays.asList(getActiveLocation().getPlayer().getConqueredRegions())
+                + "Items in Inventory = " + Arrays.asList(getActiveLocation().getPlayer().getInventory().getInventoryList())
+                + " , activeLocation=" + Tools.bringClassName(activeLocation) + ", gameCharacter=" + Tools.bringClassName(gameCharacter) + '}';
     }
 
 }

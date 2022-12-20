@@ -9,7 +9,7 @@ import maceraoyunu.inventory.Weapon;
 public class ToolStore extends SafeLocation{
     public ToolStore(Player player) {
         super(player, "Tool Store");
-
+        this.setConquered(true);
     }
 
     @Override
@@ -51,12 +51,12 @@ public class ToolStore extends SafeLocation{
         }
         Item itemToBuy=Item.getItemById(selectItem,Item.items(Tools.bringClassName(item))[0]);
         if(itemToBuy!=null){
-            if(this.getP1().getMoney()<itemToBuy.getPrice()){
+            if(this.getPlayer().getMoney()<itemToBuy.getPrice()){
                 System.out.println("You do not have enough money to buy this item !");
             }else{
-                this.getP1().setMoney(this.getP1().getMoney()-itemToBuy.getPrice());
-                System.out.println("Your previous weapon:"+this.getP1().getInventory().getWeapon().getName());
-                this.getP1().getInventory().setItem(itemToBuy);
+                this.getPlayer().setMoney(this.getPlayer().getMoney()-itemToBuy.getPrice());
+                System.out.println("Your previous weapon:"+this.getPlayer().getInventory().getWeapon().getName());
+                this.getPlayer().getInventory().setItem(itemToBuy);
                 System.out.println(itemToBuy.getName() + " was bought !");
                 printActualInfo();
 
@@ -65,10 +65,10 @@ public class ToolStore extends SafeLocation{
 
     }
     public void printActualInfo(){
-        System.out.println("Your money is now: " + this.getP1().getMoney());
-        System.out.println("Your damage is now: " + this.getP1().getDamage());
-        System.out.println("Your armor is now: " + this.getP1().getArmor());
-        System.out.println(this.getP1());
+        System.out.println("Your money is now: " + this.getPlayer().getMoney());
+        System.out.println("Your damage is now: " + this.getPlayer().getDamage());
+        System.out.println("Your armor is now: " + this.getPlayer().getArmor());
+        System.out.println(this.getPlayer());
     }
     private void printItems(Item[] item){
         if(!item.equals(null)){
