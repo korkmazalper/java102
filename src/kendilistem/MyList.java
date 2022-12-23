@@ -18,7 +18,14 @@ public class  MyList<T extends Object>{
         liste = (T[]) Array.newInstance(Object.class, capacity);
         this.pointerPosition=0;
     }
-
+    public boolean contains(T type){
+        if(type!=null){
+            for (T t: liste) {
+               if(t.equals(type)) return true;
+            }
+        }
+        return false;
+    }
     public T[] subList(int start, int end){
         subListe =  (T[]) Array.newInstance(Object.class, end-start);
         int p=0;
