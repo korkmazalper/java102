@@ -57,5 +57,9 @@ public class ListeTest {
         System.out.println("d listesi="+d.toString());
         System.out.println("l listesi bosmu="+l.isEmpty());
         System.out.println("d listesi bosmu="+d.isEmpty());
+
+
+        System.out.println("===================================");
+        System.out.println("Sublist="+l.subList(1,3).toString());
     }
 }

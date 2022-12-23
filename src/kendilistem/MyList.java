@@ -4,9 +4,11 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class  MyList<T extends Object>{
-    public T[] liste;
+    T[] liste;
+    T[] subList;
     int capacity;
     int pointerPosition;
+
     public MyList() {
         liste = (T[]) Array.newInstance(Object.class, 10);
         pointerPosition=0;
@@ -15,6 +17,21 @@ public class  MyList<T extends Object>{
     public MyList( int capacity){
         liste = (T[]) Array.newInstance(Object.class, capacity);
         pointerPosition=0;
+    }
+    public T[] subList(int start, int end){
+
+        subList=(T[]) Array.newInstance(Object.class,(end-start));
+        int p=0;
+        for(int i=start; i<end;i++){
+            subList[p]=liste[i];
+            p++;
+        }
+        return subList;
+    }
+    public void clear(){
+        for (T t:liste ) {
+            t=null;
+        }
     }
     public boolean isEmpty(){
         return size()==0;
