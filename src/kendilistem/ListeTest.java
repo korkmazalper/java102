@@ -60,6 +60,6 @@ public class ListeTest {
 
 
         System.out.println("===================================");
-        System.out.println("Sublist="+l.subList(1,3).toString());
+        System.out.println("Sublist="+l.subList(1,3));
     }
 }

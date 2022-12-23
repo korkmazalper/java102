@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class  MyList<T extends Object>{
     T[] liste;
-    T[] subList;
+    T[] subListe;
     int capacity;
     int pointerPosition;
 
@@ -16,17 +16,31 @@ public class  MyList<T extends Object>{
 
     public MyList( int capacity){
         liste = (T[]) Array.newInstance(Object.class, capacity);
-        pointerPosition=0;
+        this.pointerPosition=0;
+    }
+    public String showList(T[] t){
+        String str="";
+        for (int i=0;i<t.length;i++) {
+            if(t[i]!=null){
+                str+=t[i];
+                if(i!=t.length-1){
+                    str+=",";
+                }
+            }
+
+        }
+        return "["
+                + str +
+                "]";
     }
     public T[] subList(int start, int end){
-
-        subList=(T[]) Array.newInstance(Object.class,(end-start));
+        this.subListe =  (T[]) Array.newInstance(Object.class, end-start);
         int p=0;
         for(int i=start; i<end;i++){
-            subList[p]=liste[i];
+            subListe[p]=this.liste[i];
             p++;
         }
-        return subList;
+        return subListe;
     }
     public void clear(){
         for (T t:liste ) {
@@ -91,7 +105,7 @@ public class  MyList<T extends Object>{
         return null;
     }
 
-    @Override
+
     public String toString() {
         String str="";
         for (int i=0;i<size();i++) {
