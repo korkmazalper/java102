@@ -77,3 +77,7 @@ I
 src/maceraoyunu/Game.java,b\c\bcaff261c6961203f2546a250382a4682817dc0e
 X
 (src/maceraoyunu/inventory/Inventory.java,c\7\c7eb7af08a376155567b75215353afc7e24f2f89
+R
+"src/generics/GenericPrintTest.java,4\8\48c8973db76b8bcd754d48f2c24236df2beaf50e
+N
+src/generics/GenericPrint.java,6\3\633cd3035090fa8744a59f2dcae9b6f3509d0a6d
