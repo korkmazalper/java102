@@ -18,26 +18,12 @@ public class  MyList<T extends Object>{
         liste = (T[]) Array.newInstance(Object.class, capacity);
         this.pointerPosition=0;
     }
-    public String showList(T[] t){
-        String str="";
-        for (int i=0;i<t.length;i++) {
-            if(t[i]!=null){
-                str+=t[i];
-                if(i!=t.length-1){
-                    str+=",";
-                }
-            }
 
-        }
-        return "["
-                + str +
-                "]";
-    }
     public T[] subList(int start, int end){
-        this.subListe =  (T[]) Array.newInstance(Object.class, end-start);
+        subListe =  (T[]) Array.newInstance(Object.class, end-start);
         int p=0;
         for(int i=start; i<end;i++){
-            subListe[p]=this.liste[i];
+            subListe[p]=liste[i];
             p++;
         }
         return subListe;
@@ -104,14 +90,29 @@ public class  MyList<T extends Object>{
         }
         return null;
     }
-
-
+    @Override
     public String toString() {
         String str="";
         for (int i=0;i<size();i++) {
             if(liste[i]!=null){
                 str+=liste[i];
                 if(i!=size()-1){
+                    str+=",";
+                }
+            }
+
+        }
+        return "["
+                + str +
+                "]";
+    }
+
+    public String toString(Object[] objects) {
+        String str="";
+        for (int i=0;i<objects.length;i++) {
+            if(objects[i]!=null){
+                str+=objects[i];
+                if(i!= objects.length-1){
                     str+=",";
                 }
             }
