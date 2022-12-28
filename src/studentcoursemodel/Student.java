@@ -18,6 +18,17 @@ public class Student {
         this.note=note;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", idno='" + idno + '\'' +
+                ", address='" + address + '\'' +
+                ", note=" + note +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
@@ -57,4 +68,5 @@ public class Student {
     public void setNote(int note) {
         this.note = note;
     }
+
 }

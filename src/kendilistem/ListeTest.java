@@ -1,7 +1,8 @@
 package kendilistem;
 
 public class ListeTest {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+
         MyList<Integer> l= new MyList<>(2);
         MyList<String> ll= new MyList<>();
         l.add(5);
