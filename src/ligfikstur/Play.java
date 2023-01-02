@@ -1,4 +1,4 @@
-package ligfiksturold;
+package ligfikstur;
 
 public class Play {
     int roundNo;
