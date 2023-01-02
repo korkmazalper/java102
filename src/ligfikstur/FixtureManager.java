@@ -6,22 +6,12 @@ public class FixtureManager {
     public static void main(String[] args) {
         List<String> playedGames= new ArrayList<>();
         List<Team> teams = new ArrayList<>();
-        teams.add(new Team("Manchester"));
-        teams.add(new Team("Galatasaray"));
-        teams.add(new Team("Bayern München"));
-        teams.add(new Team("Paris Saint German"));
-        teams.add(new Team("Ajax"));
-        teams.add(new Team("Real Madrid"));
-        teams.add(new Team("Barcelona"));
-        HashMap<Integer,Integer> weekAndPlay=new HashMap<>();
+        teams.addAll(createLeageue());
         List<String> homeAndAway=new ArrayList<>();
         List<Game> games= new ArrayList<>();
         System.out.println(teams.toString());
-        if(teams.size()%2!=0){
-            teams.add(new Team("Bay"));
-        }
-        System.out.println(teams.toString());
-        int numberOfWeeks=teams.size()-1;
+
+        int numberOfWeeks = 2*(teams.size()-1);
         int numberOfWeeklyPlays=teams.size()/2;
         System.out.println("========================================");
         List<Team> weeklyTeams=new ArrayList<>();
@@ -30,7 +20,6 @@ public class FixtureManager {
              weeklyTeams.addAll( teams);
 
             for (int i = 1; i <= numberOfWeeklyPlays ; i++) {
-                weekAndPlay.clear();
                 homeAndAway.clear();
                 Team home=chooseATeam(weeklyTeams);
                 weeklyTeams.remove(home);
@@ -54,16 +43,31 @@ public class FixtureManager {
 
     }
 
+    private static List<Team> createLeageue() {
+        List<Team> teams=new ArrayList<>();
+        teams.add(new Team("Manchester United"));
+        teams.add(new Team("Galatasaray"));
+        teams.add(new Team("Bayern München"));
+        teams.add(new Team("Paris Saint German"));
+        teams.add(new Team("Real Madrid"));
+        teams.add(new Team("Barcelona"));
+        if(teams.size()%2!=0){
+            teams.add(new Team("Bay"));
+        }
+        return teams;
+    }
+
     private static void print(List<Game> games) {
-        System.out.println("Week" + " " + "Game"+ " "+"Home" + " " + "Away" );
+        System.out.println("Week" + " " + "Game"+ "\t "+"Home" + " \t\t" + "Away" );
         int previousWeekNo=0;
         for (Game game: games) {
             if(previousWeekNo!=game.getWeekNo()){
                 System.out.println("=================================================");
                 previousWeekNo= game.getWeekNo();
             }
-            System.out.println(game.weekNo + " " + game.gameNo+ " "+game.getHomeTeam() + " - " + game.getAwayTeam() );
+            System.out.println(game.weekNo + "   -   " + game.gameNo+ "  \t "+game.getHomeTeam() + " - " + game.getAwayTeam() );
         }
+        System.out.println("=================================================");
     }
 
     private static Team chooseATeam(List<Team> tteams) {
