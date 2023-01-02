@@ -1,4 +1,4 @@
-package ligfikstur;
+package ligfixtureold;
 
 public class Game {
     String homeTeam;
