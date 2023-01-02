@@ -15,9 +15,11 @@ public class FixtureManager {
         System.out.println("========================================");
         List<Team> weeklyTeams=new ArrayList<>();
         Game tempGame;
+        System.out.println("The league is randomly created ! Please wait !");
         for (int week = 1; week <=numberOfWeeks ; week++) {
-             weeklyTeams.addAll( teams);
-             int lastGameBugCorrector=0;
+            weeklyTeams.addAll( teams);
+            int lastGameBugCorrector=0;
+
             for (int i = 1; i <= numberOfWeeklyPlays ; i++) {
                 Team home=chooseATeam(weeklyTeams);
                 weeklyTeams.remove(home);
