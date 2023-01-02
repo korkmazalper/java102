@@ -1,6 +1,4 @@
-package ligfikstur;
-
-import java.util.List;
+package ligfiksturold;
 
 public class Play {
     int roundNo;

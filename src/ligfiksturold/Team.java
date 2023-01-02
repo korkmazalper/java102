@@ -1,7 +1,6 @@
-package ligfikstur;
+package ligfiksturold;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class Team {
     String name;

@@ -1,4 +1,4 @@
-package ligfikstur;
+package ligfiksturold;
 
 import java.util.*;
 
