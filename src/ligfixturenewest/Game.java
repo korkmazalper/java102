@@ -1,24 +1,24 @@
-package ligfikstur;
+package ligfixturenewest;
 
 public class Game {
     String homeTeam;
     String awayTeam;
     int weekNo;
     int gameNo;
+    static Game gameFactory(String homeTeam, String awayTeam){
+        return (!homeTeam.equals(awayTeam))? new Game(homeTeam, awayTeam):null;
+    }
+    private Game(String homeTeam, String awayTeam) {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+
+    }
 
     public Game(String homeTeam, String awayTeam, int weekNo, int gameNo) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.weekNo = weekNo;
         this.gameNo = gameNo;
-    }
-
-    public int getWeekNo() {
-        return weekNo;
-    }
-
-    public void setWeekNo(int weekNo) {
-        this.weekNo = weekNo;
     }
 
     public String getHomeTeam() {

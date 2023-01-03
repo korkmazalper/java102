@@ -1,54 +1,100 @@
-package ligfikstur;
+package ligfiksturenew;
 
 import java.util.*;
 
 public class FixtureManager {
     public static void main(String[] args) {
         List<String> playedGames= new ArrayList<>();
+        List<Game> games= new ArrayList<>();
         List<Team> teams = new ArrayList<>();
         teams.addAll(createLeageue());
-        List<Game> games= new ArrayList<>();
-        System.out.println(teams.toString());
 
+        System.out.println(teams.toString());
         int numberOfWeeks = 2*(teams.size()-1);
         int numberOfWeeklyPlays=teams.size()/2;
         System.out.println("========================================");
         List<Team> weeklyTeams=new ArrayList<>();
         Game tempGame;
         System.out.println("The league is randomly created ! Please wait !");
-        for (int week = 1; week <=numberOfWeeks ; week++) {
-            weeklyTeams.addAll( teams);
-            int lastGameBugCorrector=0;
+        int i=1;
+        for (Team team:teams ) {
+           // System.out.println(team + " Home Rivals:"+ team.getHomeRivals().toString());
+        }
 
+        for (int week = 1; week <=numberOfWeeks ; week++) {
+            weeklyTeams.addAll(teams);
+            i=1;
+            while (i <= numberOfWeeklyPlays) {
+                Team home=chooseATeam(weeklyTeams);
+                weeklyTeams.remove(home);
+                Team away=chooseATeam(weeklyTeams);
+
+                if(!home.getAwayRivals().contains(away)){
+                    tempGame=Game.gameFactory(home.getName(),away.getName(),week,i);
+                    if(tempGame!=null){
+                        if(!playedGames.contains(tempGame.toString())){
+                            playedGames.add(tempGame.toString());
+                            games.add(tempGame);
+                            home.getAwayRivals().add(away);
+                            away.getHomeRivals().add(home);
+                            weeklyTeams.remove(away);
+                        }
+
+                    }
+                }else{
+                    i--;
+                    weeklyTeams.add(home);
+                }
+
+
+                //System.out.println("home:" + home.toString());
+
+                //tempGame=Game.gameFactory(home.getName(),away.getName(),week,i);
+                //if(!playedGames.contains(tempGame.toString())){
+                //    playedGames.add(tempGame.toString());
+                //    games.add(tempGame);
+                //}
+                i++;
+            }
+
+        }
+
+
+      /*  for (int week = 1; week <=numberOfWeeks ; week++) {
+            weeklyTeams.addAll(teams);
+            int lastGameRandomChooseBugCorrector=0;
             for (int i = 1; i <= numberOfWeeklyPlays ; i++) {
                 Team home=chooseATeam(weeklyTeams);
                 weeklyTeams.remove(home);
                 Team away=chooseATeam(weeklyTeams);
                 weeklyTeams.remove(away);
-                tempGame=new Game(home.getName(),away.getName(),week,i);
+                tempGame=Game.gameFactory(home.getName(),away.getName(),week,i);
                 if(!playedGames.contains(tempGame.toString())){
                     playedGames.add(tempGame.toString());
                     games.add(tempGame);
                 } else{
-                    lastGameBugCorrector++;
+                    lastGameRandomChooseBugCorrector++;
                     weeklyTeams.add(home);
                     weeklyTeams.add(away);
                     i--;
-                    if(lastGameBugCorrector>3){
-                        playedGames=new ArrayList<>();
-                        games=new ArrayList<>();
-                        week=1;
-                        break;
+                    if(lastGameRandomChooseBugCorrector>2){
+                        lastGameRandomChooseBugCorrector=0;
+                        i=0;
+
+
                     }
+
                 }
                 //System.out.println(games.toArray().toString());
 
             }
 
-        }
+        }*/
         print(games);
 
     }
+
+
 
     private static List<Team> createLeageue() {
         List<Team> teams=new ArrayList<>();
@@ -63,7 +109,20 @@ public class FixtureManager {
         if(teams.size()%2!=0){
             teams.add(new Team("Bay"));
         }
+        //createRivalArrays(teams);
         return teams;
+    }
+
+    private static void createRivalArrays(List<Team> teamss) {
+        List<Team> t= new ArrayList<>();
+        t=teamss;
+        for (Team team: teamss) {
+                  team.getAwayRivals().addAll(t);
+                  team.getAwayRivals().remove(team);
+                  team.getHomeRivals().addAll(t);
+                  team.getHomeRivals().remove(team);
+        }
+
     }
 
     private static void print(List<Game> games) {

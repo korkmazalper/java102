@@ -9,8 +9,6 @@ P
  src/studentcoursemodel/Main.java,1\f\1f8a6b757b43dfab67a8906c5ea612466105d129
 R
 "src/universitecalisan/Calisan.java,c\0\c0e5406c054d31fca7cc1200794a72b9295839e4
-^
-.src/universitecalisan/GüvenlikGörevlisi.java,9\3\9325a2bb1cdc510d9215a36f38beb5d188458b25
 [
 +src/universitecalisan/AkademikPersonel.java,e\e\ee7bbd007f0e4cf447859fb02f6bc99ff0f2c1c4
 [
@@ -81,3 +79,21 @@ R
 "src/generics/GenericPrintTest.java,4\8\48c8973db76b8bcd754d48f2c24236df2beaf50e
 N
 src/generics/GenericPrint.java,6\3\633cd3035090fa8744a59f2dcae9b6f3509d0a6d
+N
+src/kendilistem/ListeTest.java,4\2\429c5b2fa48ab0eca3a993345997611a2e8199b0
+K
+src/kendilistem/MyList.java,f\7\f76646a81c9c1f94a7541f998fcdae0303e9cad7
+T
+$src/database/DbBetterConnection.java,8\4\84ba1ec1b71674678cc80a3b1c3a6a88f294ea76
+L
+src/ligfiksturenew/Team.java,e\c\ece09be213e861cce399ed66876ac9df2ccffa1e
+L
+src/ligfiksturenew/Game.java,4\7\479ae75f86f1d51f6339f25d20b957442137e530
+V
+&src/ligfiksturenew/FixtureManager.java,f\6\f6ed4442a6d58b3ce502d695b3de91852e660bb7
+N
+src/ligfixturenewest/Team.java,2\9\29c7d89c1eb42669ddef3b16edb6f8e4664e5eba
+N
+src/ligfixturenewest/Game.java,5\7\578caa9dc7cba0af3625d4238608b371d7584a1a
+X
+(src/ligfixturenewest/FixtureManager.java,0\a\0af18c9fb6825220f69a215aa59ad4676cb330fc
