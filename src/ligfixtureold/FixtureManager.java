@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:src/ligfiksturenew/FixtureManager.java
-package ligfiksturenew;
-========
+
 package ligfixtureold;
->>>>>>>> 0bfefd87e41caea3083799660d136a8f2b892781:src/ligfixtureold/FixtureManager.java
 
 import java.util.*;
 
@@ -32,15 +29,15 @@ public class FixtureManager {
                 Team home=chooseATeam(weeklyTeams);
                 weeklyTeams.remove(home);
                 Team away=chooseATeam(weeklyTeams);
-
+/*
                 if(!home.getAwayRivals().contains(away)){
                     tempGame=Game.gameFactory(home.getName(),away.getName(),week,i);
                     if(tempGame!=null){
                         if(!playedGames.contains(tempGame.toString())){
                             playedGames.add(tempGame.toString());
                             games.add(tempGame);
-                            home.getAwayRivals().add(away);
-                            away.getHomeRivals().add(home);
+                            //home.getAwayRivals().add(away);
+                           // away.getHomeRivals().add(home);
                             weeklyTeams.remove(away);
                         }
 
@@ -48,7 +45,7 @@ public class FixtureManager {
                 }else{
                     i--;
                     weeklyTeams.add(home);
-                }
+                }*/
 
 
                 //System.out.println("home:" + home.toString());
@@ -121,10 +118,10 @@ public class FixtureManager {
         List<Team> t= new ArrayList<>();
         t=teamss;
         for (Team team: teamss) {
-                  team.getAwayRivals().addAll(t);
+                  /*team.getAwayRivals().addAll(t);
                   team.getAwayRivals().remove(team);
                   team.getHomeRivals().addAll(t);
-                  team.getHomeRivals().remove(team);
+                  team.getHomeRivals().remove(team);*/
         }
 
     }

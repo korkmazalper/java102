@@ -1,6 +1,9 @@
 package ligfixtureold;
 
+import kendilistem.MyList;
+
 import java.util.HashSet;
+import java.util.List;
 
 public class Team {
     String name;
@@ -45,4 +48,6 @@ public class Team {
     public String toString() {
         return name;
     }
+
+
 }

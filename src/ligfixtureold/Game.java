@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:src/ligfiksturenew/Game.java
-package ligfiksturenew;
-========
+
 package ligfixtureold;
->>>>>>>> 0bfefd87e41caea3083799660d136a8f2b892781:src/ligfixtureold/Game.java
 
 public class Game {
     String homeTeam;
