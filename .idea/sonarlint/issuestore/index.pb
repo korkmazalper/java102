@@ -121,3 +121,17 @@ O
 src/lambdaexpressions/Main.java,1\d\1dfb04aba647ede776da4a9f870cdb923480f483
 X
 (src/threadSamples/ThreadPoolingMain.java,f\a\fa0ba19b4d2e651618d78b87cfa6d59a03c5cbdb
+X
+(src/lambdaexpressions/StreamApiMain.java,f\f\ff710f04e0df12d95a6cb9bd15474b045fba64c0
+B
+src/enums/Gun.java,2\6\2609e832d3ce68ee9ab0a0561e03f59cc54647f3
+B
+src/enums/Day.java,f\b\fb8c3447c690d0406eb21cb3fb6bc8cd2c48b0c5
+F
+src/enums/GunMain.java,8\8\88c7dec710d28da75f4304efb50da22d539c9bb0
+D
+src/gui/GUIMain.java,d\b\db32243ca81b50b55467fe87302dbe16e58a7bb1
+B
+src/gui/First.java,e\4\e471ad0879df67bbc4eba9a20178fe61a0d98467
+B
+src/gui/First.form,2\5\25a351600f6cd8d0dc442fef9cf3673a0a6d8e92
